@@ -1,121 +1,63 @@
-    <head>
-    <meta charset="utf-8" />
-    <title></title>
-    <style type="text/css">
-     /* body{
-      margin: 0px;
-     } */
-     .zhezhao{
-      position: fixed;
-      left: 0px;
-      top: 0px;
-      background: #000;
-      width: 100%;
-      height: 100%;
-      opacity: 0.5;
-     }
-     .tankuang{
-      position: relative;
-      background: #000;
-      width: 50%;
-      height: 80%;
-      border-radius: 5px;
-      margin: 5% auto;
-     }
-     .back{
-        margin: 0px; 
-     }
-     #header{
-      height: 40px;
-     }
-    .popup {
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8" />
+  <title></title>
+  <style type="text/css">
+   body{
+    margin: 0px;
+   }
+   .zhezhao{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    background: #000;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+   }
+   .tankuang{
     position: relative;
-    display: inline-block;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    }
-
-    /* The actual popup */
-    .popup .popuptext {
-    visibility: hidden;
-    width: 160px;
-    background-color: #555;
+    background: #fff;
+    width: 50%;
+    height: 80%;
+    border-radius: 5px;
+    margin: 5% auto;
+   }
+   #header{
+    height: 40px;
+   }
+   #header-right{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-radius: 5px;
+    background: red;
     color: #fff;
+    right: 5px;
+    top: 5px;
     text-align: center;
-    border-radius: 6px;
-    padding: 8px 0;
-    position: absolute;
-    z-index: 1;
-    bottom: 125%;
-    left: 50%;
-    margin-left: -80px;
-    }
-
-    /* Popup arrow */
-    .popup .popuptext::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
-    }
-
-    /* Toggle this class - hide and show the popup */
-    .popup.show .popuptext {
-    visibility: visible;
-    -webkit-animation: fadeIn 1s;
-    animation: fadeIn 1s;
-    }
-
-    /* Add animation (fade in the popup) */
-    @-webkit-keyframes fadeIn {
-    from {opacity: 0;} 
-    to {opacity: 1;}
-    }
-
-    @keyframes fadeIn {
-    from {opacity: 0;}
-    to {opacity:1 ;}
-    }
-    </style>
-    </head>
-    <h2>Popup</h2>
-
-    <div class="popup">Click me to toggle the popup!
-        <span class="popuptext">A Simple Popup!</span>
+   }
+  </style>
+ </head>
+ <body>
+  <!-- <button type="button" onclick="dianwo()">点我</button> -->
+  <div class="zhezhao" id='zhezhao'>
+   <div class="tankuang" onclick="dianwo()">
+    <div id="header">
+     <span>我是弹窗</span>
+     <div id="header-right" onclick="hidder()">x</div>
     </div>
-
-    <div class="popup">Click me to toggle the popup!
-        <span class="popuptext">A Simple Popup!</span>
-    </div>
-
-    <script type="text/javascript">
-        const popups = [...document.getElementsByClassName('popup')];
-
-        window.addEventListener('click', ({ target }) => {
-        const popup = target.closest('.popup');
-        const clickedOnClosedPopup = popup && !popup.classList.contains('show');
-        
-        popups.forEach(p => p.classList.remove('show'));
-        
-        if (clickedOnClosedPopup) popup.classList.add('show');  
-        });
-        // click("back", "tankuang");
-        // document.onclick = function(){
-        //     div.style.display = "none"
-        // }
-        // function click(name,box) {
-        //     $(document).on("click", function(e) {
-        //         var _conss = $('.'+name);//点击的容器范围
-        //         if (!_conss.is(e.target) && _conss.has(e.target).length === 0) {
-        //             $("."+box).hide();//选择要关闭的容器
-        //         }
-        //     });
-        // }
-    </script>
+   </div>
+  </div>
+  <script type="text/javascript">
+   document.getElementById('zhezhao').style.display="none";
+   function dianwo(){
+    document.getElementById('zhezhao').style.display="";
+   }
+   function hidder(){
+    document.getElementById('zhezhao').style.display="none";
+   }
+  </script>
+ </body>
+</html>
