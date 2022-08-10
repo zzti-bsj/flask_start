@@ -11,7 +11,7 @@
     position: fixed;
     left: 0px;
     top: 0px;
-    background: #000;
+    background: #fff;
     width: 100%;
     height: 100%;
     opacity: 0.5;
@@ -41,11 +41,15 @@
   </style>
  </head>
  <body onload="load()" onclick="hidder()">
+  <div class="zhezhao" id='zhezhao'>
+      <p>hello</p>
    <div class="tankuang">
     <div id="header">
      <span>我是弹窗</span>
+     <div id="header-right" onclick="hidder()">x</div>
     </div>
    </div>
+  </div>
   <script type="text/javascript">
    function load(){
     document.getElementById('zhezhao').style.display="";
