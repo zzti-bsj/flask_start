@@ -12,7 +12,7 @@ bp = Blueprint('liang', __name__, url_prefix='/liang')
 # views code
 # -------------------
 
-@bp.route('auth', methods=['GET', 'POST'])
+@bp.route('/auth', methods=['GET', 'POST'])
 def liang_auth():
     if request.method == 'POST':
         return '待处理！'
