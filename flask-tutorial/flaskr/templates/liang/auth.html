@@ -16,7 +16,7 @@
      }
      .tankuang{
       position: relative;
-      background: #fff;
+      background: #000;
       width: 50%;
       height: 80%;
       border-radius: 5px;
@@ -28,22 +28,20 @@
     </style>
    </head>
    <body class="body">
-    <div class="zhezhao" id='zhezhao'>
-     <div class="tankuang">
-      <div id="header">
-       <span>我是弹窗</span>
-      </div>
-     </div>
-    </div>
-    <script type="text/javascript">
-    click("zhezhao","zhezhao");
-    function click(name,box) {
-        $(document).on("click", function(e) {
-            var _conss = $('.'+name);//点击的容器范围
-            if (!_conss.is(e.target) && _conss.has(e.target).length === 0) {
-                $("."+box).hide();//选择要关闭的容器
-            }
-        });
-    }
-    </script>
+        <div class="tankuang">
+            <div id="header">
+            <span>我是弹窗</span>
+            </div>
+        </div>
+        <script type="text/javascript">
+        click("body", "tankuang");
+        function click(name,box) {
+            $(document).on("click", function(e) {
+                var _conss = $('.'+name);//点击的容器范围
+                if (!_conss.is(e.target) && _conss.has(e.target).length === 0) {
+                    $("."+box).hide();//选择要关闭的容器
+                }
+            });
+        }
+        </script>
     </body>
