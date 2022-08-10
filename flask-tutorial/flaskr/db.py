@@ -1,5 +1,4 @@
 import sqlite3
-from tkinter.messagebox import NO
 
 import click
 from flask import current_app, g

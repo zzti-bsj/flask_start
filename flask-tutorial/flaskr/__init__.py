@@ -34,5 +34,7 @@ def create_app(test_config=None):
     # 在工厂函数中初始化db
     from . import db
     db.init_app(app)
+    # 导入蓝图
+    
 
     return app
