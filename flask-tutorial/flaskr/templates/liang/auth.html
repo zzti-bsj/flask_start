@@ -28,23 +28,94 @@
      #header{
       height: 40px;
      }
+    .popup {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    }
+
+    /* The actual popup */
+    .popup .popuptext {
+    visibility: hidden;
+    width: 160px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -80px;
+    }
+
+    /* Popup arrow */
+    .popup .popuptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+    }
+
+    /* Toggle this class - hide and show the popup */
+    .popup.show .popuptext {
+    visibility: visible;
+    -webkit-animation: fadeIn 1s;
+    animation: fadeIn 1s;
+    }
+
+    /* Add animation (fade in the popup) */
+    @-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+    }
+
+    @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+    }
     </style>
-   </head>
-   <div class="back">
-        <div class="tankuang">
-            <div id="header">
-            <span>我是弹窗</span>
-            </div>
-        </div>
+    </head>
+    <h2>Popup</h2>
+
+    <div class="popup">Click me to toggle the popup!
+        <span class="popuptext">A Simple Popup!</span>
     </div>
+
+    <div class="popup">Click me to toggle the popup!
+        <span class="popuptext">A Simple Popup!</span>
+    </div>
+
     <script type="text/javascript">
-        click("back", "tankuang");
-        function click(name,box) {
-            $(document).on("click", function(e) {
-                var _conss = $('.'+name);//点击的容器范围
-                if (!_conss.is(e.target) && _conss.has(e.target).length === 0) {
-                    $("."+box).hide();//选择要关闭的容器
-                }
-            });
-        }
+        const popups = [...document.getElementsByClassName('popup')];
+
+        window.addEventListener('click', ({ target }) => {
+        const popup = target.closest('.popup');
+        const clickedOnClosedPopup = popup && !popup.classList.contains('show');
+        
+        popups.forEach(p => p.classList.remove('show'));
+        
+        if (clickedOnClosedPopup) popup.classList.add('show');  
+        });
+        // click("back", "tankuang");
+        // document.onclick = function(){
+        //     div.style.display = "none"
+        // }
+        // function click(name,box) {
+        //     $(document).on("click", function(e) {
+        //         var _conss = $('.'+name);//点击的容器范围
+        //         if (!_conss.is(e.target) && _conss.has(e.target).length === 0) {
+        //             $("."+box).hide();//选择要关闭的容器
+        //         }
+        //     });
+        // }
     </script>
