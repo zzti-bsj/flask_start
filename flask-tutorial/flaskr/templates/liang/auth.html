@@ -40,10 +40,9 @@
    }
   </style>
  </head>
- <body>
-  <!-- <button type="button" onclick="dianwo()">点我</button> -->
+ <body onload="load()">
   <div class="zhezhao" id='zhezhao'>
-   <div class="tankuang" onclick="hidder()">
+   <div class="tankuang">
     <div id="header">
      <span>我是弹窗</span>
      <div id="header-right" onclick="hidder()">x</div>
@@ -51,9 +50,7 @@
    </div>
   </div>
   <script type="text/javascript">
-    dianwo()
-   document.getElementById('zhezhao').style.display="none";
-   function dianwo(){
+   function load(){
     document.getElementById('zhezhao').style.display="";
    }
    function hidder(){
