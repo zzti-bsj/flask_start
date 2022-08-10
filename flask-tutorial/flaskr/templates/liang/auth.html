@@ -27,17 +27,24 @@
      }
     </style>
    </head>
-   <body onclick="hidder()">
-    <div class="zhezhao" id='zhezhao'>
+   <body class="body" onclick="hidder()">
      <div class="tankuang">
       <div id="header">
        <span>我是弹窗</span>
       </div>
      </div>
-    </div>
     <script type="text/javascript">
      function hidder(){
       document.getElementById('body').style.display="none";
      }
+     click("body","tankuang");
+    function click(name,box) {
+        $(document).on("click", function(e) {
+            var _conss = $('.'+name);//点击的容器范围
+            if (!_conss.is(e.target) && _conss.has(e.target).length === 0) {
+                $("."+box).hide();//选择要关闭的容器
+            }
+        });
+    }
     </script>
     </body>
