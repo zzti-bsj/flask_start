@@ -28,4 +28,4 @@ def auth():
         result['time'] = '2022-7-31 17:30:50'
 
         result['yuelaiyuexingle'] = '疫情防控 人人有责 仿冒凭证 依法必究'
-        return result
+        return render_template('liang/auth.html', context=result)
